@@ -1,0 +1,16 @@
+version: "3"
+services:
+  back:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9090:80"
+    networks:
+      - test_net
+
+networks:
+  test_net:
+    driver: bridge
